@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Links-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/themes/base/jquery-ui.min.css">
+    <!-- My links -->
+    <link rel="stylesheet" href="./assets/css/style.css" />
+
+    <title>Weather Dashboard</title>
+  </head>
+
+  <header>
+    <div class="row">
+      <h2 id="headerRow" class="col-12 text-center bg-primary text-light">Weather Dashboard</h2>
+    </div>
+  </header>
+
+  <main>
+    <div class="container-fluid">
+      <div class="row">
+        <nav class="col-md-2 d-none d-md-block bg-light sidebar sidebar-sticky">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <div class="text-dark align-items-left" href="#">
+                <h4><strong>Search for a City:</strong></h4>
+              </div>
+            </li>
+            <li class="nav-item">
+              <input class="col-12" id="searchCity" type="text" placeholder="City name" value="" maxlength="30" />
+            </li>
+            <li class="nav-item">
+              <a href="#" class="col-12 btn btn-primary my-2" id="btnSearch">Search</a>
+            </li>
+            <li class="nav-item">
+              <hr class="border border-dark w-100" />
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn my-2" id="savedCity1">City 1</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity2">City 2</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity3">City 3</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity4">City 4</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity5">City 5</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity6">City 6</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity7">City 7</a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="saveCity col-12 btn btn-secondary my-2" id="savedCity8">City 8</a>
+            </li>
+          </ul>
+        </nav>
+
+        <!-- Main card -->
+        <div class="card col-10">
+          <div class="card-body" id="mainCard">
+            <h4 class="card-title"><strong id="cityName">City Name <span id="dateForecast">Today's Date</span></strong>
+            </h4>
+            <img id="todayIcon" />
+            <p class="card-text">Temp: <span id="todayTemp"></span></p>
+            <p class="card-text">Wind: <span id="todayWind"></span></p>
+            <p class="card-text">Humidity: <span id="todayHumidity"></span></p>
+            <p class="card-text">UV Index: <a id="todayUV"></a></p>
+          </div>
+          <!-- Card deck of 5 day forecast below Main-->
+          <div class="row">
+            <h5 class="col-10" id="5dayHeader"><strong>5-Day Forecast:</strong></h5>
+            <div class="card-deck">
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h6 class="card-title"><span id="day1Date"><strong>Date</strong></span></h6>
+                  <img id="day1Icon" />
+                  <p class="card-text">Temp: <span id="day1Temp"></span></p>
+                  <p class="card-text">Wind: <span id="day1Wind"></span></p>
+                  <p class="card-text">Humidity: <span id="day1Humidity"></span></p>
+                  <p class="card-text">UV Index: <a id="day1UV"></a></p>
+                </div>
+              </div>
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h6 class="card-title"><span id="day2Date"><strong>Date</strong></span></h6>
+                  <img id="day2Icon" />
+                  <p class="card-text">Temp: <span id="day2Temp"></span></p>
+                  <p class="card-text">Wind: <span id="day2Wind"></span></p>
+                  <p class="card-text">Humidity: <span id="day2Humidity"></span></p>
+                  <p class="card-text">UV Index: <a id="day2UV"></a></p>
+                </div>
+              </div>
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h6 class="card-title"><span id="day3Date"><strong>Date</strong></span></h6>
+                  <img id="day3Icon" />
+                  <p class="card-text">Temp: <span id="day3Temp"></span></p>
+                  <p class="card-text">Wind: <span id="day3Wind"></span></p>
+                  <p class="card-text">Humidity: <span id="day3Humidity"></span></p>
+                  <p class="card-text">UV Index: <a id="day3 UV"></a></p>
+                </div>
+              </div>
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h6 class="card-title"><span id="dateForecast"><strong>Date</strong></span></h6>
+                  <img id="todayIcon" />
+                  <p class="card-text">Temp: <span id="todayTemp"></span></p>
+                  <p class="card-text">Wind: <span id="todayWind"></span></p>
+                  <p class="card-text">Humidity: <span id="todayHumidity"></span></p>
+                  <p class="card-text">UV Index: <a id="todayUV"></a></p>
+                </div>
+              </div>
+              <div class="card" style="width: 20rem;">
+                <div class="card-body">
+                  <h6 class="card-title"><span id="dateForecast"><strong>Date</strong></span></h6>
+                  <img id="todayIcon" />
+                  <p class="card-text">Temp: <span id="todayTemp"></span></p>
+                  <p class="card-text">Wind: <span id="todayWind"></span></p>
+                  <p class="card-text">Humidity: <span id="todayHumidity"></span></p>
+                  <p class="card-text">UV Index: <a id="todayUV"></a></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Script references -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.15.0/umd/popper.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+  <!-- My scripts -->
+  <script src="./assets/js/script.js"></script>
+  </body>
+  </html>
