@@ -1,0 +1,42 @@
+/* Special color gradient for top banner */
+
+#headerRow  {
+        background-image: linear-gradient(to right, #476DC5, #210556);
+        height: 50px;
+      }
+
+#mainCard {
+  border-style: solid;
+    border-color: black;
+}
+
+.saveCity {
+  background-color: #B7B7B7;
+  color:black 
+}
+
+.card-deck .card-body{
+  background-color: #37475B;
+  color: white;
+}
+
+.uvi-low{
+  background-color: greenyellow;
+  color: black;
+}
+.uvi-med{
+  background-color: yellow;
+  color: black;
+}
+.uvi-high{
+  background-color: orange;
+  color: black;
+}
+.uvi-very-high{
+  background-color: red;
+  color: white;
+}
+.uvi-extremely-high{
+  background-color: purple;
+  color: white;
+}
