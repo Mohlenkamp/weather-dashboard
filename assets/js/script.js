@@ -72,28 +72,38 @@ function updateFavButtons(cityName){
         // The local storage is not initalized
         for (i=0;i<9;i++){
             savedCityButtonID = "#savedCity" + i.toString() 
-            localStorage.setItem(savedCityButtonID," ")
+            localStorage.setItem(savedCityButtonID,"Future Saved City" + i.toString())
         }
     }
-    localStorage.setItem("#savedCity0",cityName)
-    
-
-    // Get list from LocalStorage, push cityName into location 0, then do set/swap
-    for (i=8; i>0; i--){
-        //Loop goes from bottom to top
-        //Look for value in previous button
-        savedCityButtonID = "#savedCity" + (i - 1).toString()
-        prevValue = localStorage.getItem(savedCityButtonID)
-        //Set swap on current button
-        savedCityButtonID = "#savedCity" + (i).toString()
-        savedCityElement = document.querySelector(savedCityButtonID)
-        if (prevValue && (prevValue !== " ")){
-            // only push prevValue to button if it exists
+    if (!cityName){
+        // Windows OnLoad event -- Show current buttons
+        for (i=1;i<9;i++){
+            savedCityButtonID = "#savedCity" + (i).toString()
+            savedCityElement = document.querySelector(savedCityButtonID)
+            prevValue = localStorage.getItem(savedCityButtonID)
             savedCityElement.textContent = prevValue
-            localStorage.setItem(savedCityButtonID,prevValue)
-                }
-        else{
-            // location is empty
+            }
+    } 
+    else{
+        // Get list from LocalStorage, push cityName into location 0, then do set/swap
+        localStorage.setItem("#savedCity0", cityName)
+        for (i=8; i>0; i--){
+            debugger
+            //Loop goes from bottom to top
+            //Look for value in previous button
+            savedCityButtonID = "#savedCity" + (i - 1).toString()
+            prevValue = localStorage.getItem(savedCityButtonID)
+            //Set swap on current button
+            savedCityButtonID = "#savedCity" + (i).toString()
+            savedCityElement = document.querySelector(savedCityButtonID)
+            if (prevValue && (prevValue !== " ")){
+                // only push prevValue to button if it exists
+                savedCityElement.textContent = prevValue
+                localStorage.setItem(savedCityButtonID,prevValue)
+            }
+            // else{
+            //     // location is empty
+            // }
         }
     }
 }
@@ -254,9 +264,8 @@ function weatherFetch(cityName, bManualSearch) {
 
 // Event Listeners
 window.onload = function() {
-    updateFavButtons("Nashville") // becasue I like it
+    updateFavButtons("") 
   };
-
 
 // create event listener on search button to call weatherFetch
 $("#btnSearch").click(function() {
